@@ -3,13 +3,22 @@ const nextConfig = {
   images: {
     domains: ['res.cloudinary.com'],
   },
-  // If needed for TypeScript support:
   typescript: {
     ignoreBuildErrors: false,
   },
-  // Disable ESLint during builds
   eslint: {
     ignoreDuringBuilds: true,
+  },
+  // Add webpack configuration for .mjs files
+  webpack: (config) => {
+    // Add support for .mjs files
+    config.module.rules.push({
+      test: /\.mjs$/,
+      include: /node_modules/,
+      type: 'javascript/auto',
+    });
+    
+    return config;
   },
 };
 

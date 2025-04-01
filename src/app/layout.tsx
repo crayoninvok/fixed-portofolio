@@ -2,8 +2,13 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/context/ThemeContext';
-import Navbar from '@/components/layout/Navbar';
+import dynamic from 'next/dynamic';
 import Footer from '@/components/layout/Footer';
+
+// Dynamically import Navbar with no SSR
+const Navbar = dynamic(() => import('@/components/layout/Navbar'), { 
+  ssr: false 
+});
 
 const inter = Inter({ subsets: ['latin'] });
 

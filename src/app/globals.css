@@ -7,11 +7,9 @@
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
 
 body {
@@ -41,4 +39,58 @@ body {
 
 .animate-marquee2 {
   animation: marquee2 25s linear infinite;
+}
+
+/* React-Quill Styling */
+@import 'react-quill/dist/quill.snow.css';
+
+/* Styling for Quill in light mode */
+.quill {
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.ql-container {
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  font-family: inherit;
+  min-height: 10rem;
+}
+
+.ql-toolbar {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  background-color: #f9fafb;
+}
+
+/* Dark mode styling for Quill */
+.dark .ql-toolbar {
+  background-color: #374151;
+  border-color: #4B5563;
+}
+
+.dark .ql-container {
+  background-color: #1F2937;
+  border-color: #4B5563;
+  color: white;
+}
+
+.dark .ql-editor.ql-blank::before {
+  color: #9CA3AF;
+}
+
+.dark .ql-snow .ql-stroke {
+  stroke: #D1D5DB;
+}
+
+.dark .ql-snow .ql-fill {
+  fill: #D1D5DB;
+}
+
+.dark .ql-snow .ql-picker {
+  color: #D1D5DB;
+}
+
+.dark .ql-snow .ql-picker-options {
+  background-color: #374151;
 }

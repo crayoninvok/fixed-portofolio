@@ -316,7 +316,7 @@ export const educationData = [
     duration: "2024 - 2025",
     description:
       "Intensive program focused on modern web development technologies and industry best practices. Built several full-stack applications including an e-commerce platform, social media app, and data visualization dashboard. Gained hands-on experience with modern development workflows and collaborative coding using Git.",
-    logo: "https://res.cloudinary.com/dpuqloe2r/image/upload/v1743511214/images_g6u4ak.png",
+    logo: "https://res.cloudinary.com/dpuqloe2r/image/upload/v1743526460/portfolios-purwadhika_hayhqs.png",
     courses: [
       "JavaScript/TypeScript",
       "React & Next.js",

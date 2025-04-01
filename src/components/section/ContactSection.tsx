@@ -1,8 +1,7 @@
-// components/section/ContactSection.tsx
 'use client';
 
-import { useState } from 'react';
-import { motion,AnimatePresence } from 'framer-motion';
+import { useState, FormEvent } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import FadeIn from '@/components/animation/FadeIn';
 import AnimatedText from '@/components/animation/AnimatedText';
 import { userInfo } from '@/lib/data';
@@ -16,6 +15,30 @@ type FormState = {
 
 type FormErrors = {
   [key in keyof FormState]?: string;
+};
+
+// Email sending function
+const sendEmail = async (formData: FormData) => {
+  try {
+    const response = await fetch('/api/send-email', {
+      method: 'POST',
+      body: formData,
+    });
+    
+    const result = await response.json();
+    
+    if (!response.ok) {
+      throw new Error(result.error || 'Failed to send email');
+    }
+    
+    return { success: true, ...result };
+  } catch (error) {
+    console.error('Error sending email:', error);
+    return { 
+      success: false, 
+      error: error instanceof Error ? error.message : 'Unknown error occurred' 
+    };
+  }
 };
 
 export default function ContactSection() {
@@ -55,10 +78,6 @@ export default function ContactSection() {
       newErrors.email = 'Email is invalid';
     }
     
-    if (!formData.subject.trim()) {
-      newErrors.subject = 'Subject is required';
-    }
-    
     if (!formData.message.trim()) {
       newErrors.message = 'Message is required';
     }
@@ -67,7 +86,7 @@ export default function ContactSection() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     
     if (!validate()) return;
@@ -75,12 +94,21 @@ export default function ContactSection() {
     setIsSubmitting(true);
     
     try {
-      // In a real app, you would send the form data to your backend
-      // For now, we'll simulate an API call
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      // Create FormData object for submission
+      const submitFormData = new FormData();
+      Object.entries(formData).forEach(([key, value]) => {
+        submitFormData.append(key, value);
+      });
       
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
+      // Send the email
+      const result = await sendEmail(submitFormData);
+      
+      if (result.success) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        throw new Error(result.error || 'Failed to send email');
+      }
     } catch (error) {
       console.error('Error submitting form:', error);
       setSubmitStatus('error');
