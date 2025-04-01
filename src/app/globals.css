@@ -94,3 +94,14 @@ body {
 .dark .ql-snow .ql-picker-options {
   background-color: #374151;
 }
+.perspective {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.cube-container {
+  transform-style: preserve-3d;
+}
