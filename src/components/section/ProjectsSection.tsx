@@ -1,6 +1,4 @@
-// components/section/ProjectsSection.tsx
-'use client';
-
+"use client"
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -8,7 +6,6 @@ import { motion } from 'framer-motion';
 import FadeIn from '@/components/animation/FadeIn';
 import AnimatedText from '@/components/animation/AnimatedText';
 import { Project } from '@/types';
-// Import projectsData from the data file instead of types
 import { projectsData } from '@/lib/data';
 
 export default function ProjectsSection() {
@@ -104,6 +101,11 @@ interface ProjectCardProps {
 }
 
 function ProjectCard({ project, index }: ProjectCardProps) {
+  // Get the first image from the images array, or use image property, or fallback to default
+  const imageSource = project.images && project.images.length > 0 
+    ? project.images[0] 
+    : (project.image || '/images/default-project.jpg');
+
   return (
     <FadeIn delay={0.1 * index}>
       <motion.div
@@ -112,7 +114,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
       >
         <div className="relative h-48 overflow-hidden">
           <Image
-            src={project.image}
+            src={imageSource}
             alt={project.title}
             fill
             className="object-cover transition-transform duration-300 hover:scale-110"
