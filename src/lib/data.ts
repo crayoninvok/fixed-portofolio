@@ -3,6 +3,8 @@
 
 import { Project, Experience, Certificate } from "@/types";
 
+// projectsData with images array instead of single image field
+
 export const projectsData: Project[] = [
   {
     id: "1",
@@ -10,8 +12,10 @@ export const projectsData: Project[] = [
     name: "Nautika Sentra Indonesia",
     description:
       "A modern, responsive company profile website for Nautika Sentra Indonesia, showcasing their maritime services, company history, and team members. Features dynamic content management through Contentful CMS, allowing easy updates without code changes.",
-    image:
+    images: [
       "https://res.cloudinary.com/dpuqloe2r/image/upload/v1743514395/NSIFRONT_pabrls.jpg",
+      // Add additional images here when available
+    ],
     technologies: [
       "Next.js",
       "TypeScript",
@@ -29,8 +33,10 @@ export const projectsData: Project[] = [
     name: "TIKO",
     description:
       "A comprehensive event ticketing platform that enables users to browse, purchase, and manage tickets for various events. Features include user authentication, real-time seat selection, secure payment processing via Midtrans, QR code ticket generation, and admin dashboard for event management.",
-    image:
+    images: [
       "https://res.cloudinary.com/dpuqloe2r/image/upload/v1743514396/TIKOFRONT_ryehkb.png",
+      // Add additional images here when available
+    ],
     technologies: [
       "Next.js",
       "Typescript",
@@ -56,8 +62,10 @@ export const projectsData: Project[] = [
     name: "Tech Lite",
     description:
       "A feature-rich e-commerce platform specialized in electronics and gadgets. Includes product catalog with advanced filtering, user reviews, shopping cart functionality, wishlists, and secure checkout with multiple payment options. Integrated with AIS API for product verification and Midtrans for payment processing.",
-    image:
+    images: [
+      "https://res.cloudinary.com/dpuqloe2r/image/upload/v1743521410/Screenshot_2025-04-01_222948_mstfsq.png",
       "https://res.cloudinary.com/dpuqloe2r/image/upload/v1743514402/TECHPRO_ntvzit.png",
+    ],
     technologies: [
       "Next.js",
       "Typescript",
@@ -85,8 +93,11 @@ export const projectsData: Project[] = [
     name: "VessM",
     description:
       "An advanced maritime vessel maintenance management system designed for shipping companies and vessel operators. Tracks maintenance schedules, spare parts inventory, crew certifications, and provides detailed analytics on vessel performance. Features interactive maintenance logs, real-time alerts for upcoming maintenance, integration with Google Maps for vessel tracking, and comprehensive reporting tools.",
-    image:
+    images: [
       "https://res.cloudinary.com/dcf4czeat/image/upload/v1742851554/super_admin_n8pzkq.png",
+      "https://res.cloudinary.com/dcf4czeat/image/upload/v1742851554/super_admin_n8pzkq.png", // Using the preview image as second image
+      // Add additional images here when available
+    ],
     technologies: [
       "Next.js",
       "Typescript",
@@ -105,8 +116,7 @@ export const projectsData: Project[] = [
       frontend: "https://github.com/crayoninvok/VesselService-Monitoring-FE",
       backend: "https://github.com/crayoninvok/VesselService-Monitoring-BE",
     },
-    preview:
-      "https://res.cloudinary.com/dcf4czeat/image/upload/v1742851554/super_admin_n8pzkq.png",
+    // Remove preview field since we're now using images array
   },
 ];
 
@@ -184,65 +194,37 @@ export const certificatesData: Certificate[] = [
     id: "1",
     name: "Process Measurement Instrumentation",
     issuer: "Yokogawa Indonesia",
-    date: "Aug 2021",
-    image: "https://res.cloudinary.com/dpuqloe2r/image/upload/v1743516442/3a7668c43cc459942a917cc1490266f57e145f59_kft0jo.jpg",
+    date: "August 2021",
+    image:
+      "https://res.cloudinary.com/dpuqloe2r/image/upload/v1743516442/3a7668c43cc459942a917cc1490266f57e145f59_kft0jo.jpg",
     link: "https://drive.google.com/file/d/1goYnd9VG_isVj1ImEfYbWLqOqckPpReA/view?usp=sharing",
   },
   {
     id: "2",
-    name: "Next.js 13 Masterclass",
-    issuer: "Vercel",
-    date: "January 2023",
-    image: "/assets/certificates/nextjs.jpg",
-    link: "https://example.com/cert/nextjs",
+    name: "General Operator Certificate GMDSS",
+    issuer: "Direktorat Jendral Sumber Daya dan Perangkat Pos dan Informatika",
+    date: "November 2021",
+    image:
+      "https://res.cloudinary.com/dpuqloe2r/image/upload/v1743517886/channels4_profile_rg2mpg.jpg",
+    link: "https://drive.google.com/file/d/1uBiW2ec8tp2H93un7ZoxmGOSR5xcTrtI/view?usp=drive_link",
   },
   {
     id: "3",
-    name: "TypeScript Professional",
-    issuer: "Microsoft Learning",
-    date: "November 2022",
-    image: "/assets/certificates/typescript.jpg",
-    link: "https://example.com/cert/typescript",
+    name: "Annual Performance & Reprogramming Voyage Data Recorder",
+    issuer: "Furuno Singapore",
+    date: "September 2023",
+    image:
+      "https://res.cloudinary.com/dpuqloe2r/image/upload/v1743518037/20170801_100414-e1501835029873_fm7yq1.jpg",
+    link: "https://drive.google.com/file/d/1vsAx26VKQXuq0-j90mHrwxBgwqGmhSmn/view?usp=drive_link",
   },
   {
     id: "4",
-    name: "AWS Certified Developer - Associate",
-    issuer: "Amazon Web Services",
-    date: "August 2022",
-    image: "/assets/certificates/aws-developer.jpg",
-    link: "https://example.com/cert/aws-dev",
-  },
-  {
-    id: "5",
-    name: "UI/UX Design Fundamentals",
-    issuer: "Interaction Design Foundation",
-    date: "May 2022",
-    image: "/assets/certificates/uiux-design.jpg",
-    link: "https://example.com/cert/uiux",
-  },
-  {
-    id: "6",
-    name: "Modern JavaScript from the Beginning",
-    issuer: "Udemy",
-    date: "September 2021",
-    image: "/assets/certificates/javascript.jpg",
-    link: "https://example.com/cert/javascript",
-  },
-  {
-    id: "7",
-    name: "MongoDB Database Administrator",
-    issuer: "MongoDB University",
-    date: "July 2021",
-    image: "/assets/certificates/mongodb.jpg",
-    link: "https://example.com/cert/mongodb",
-  },
-  {
-    id: "8",
-    name: "Responsive Web Design",
-    issuer: "freeCodeCamp",
-    date: "March 2021",
-    image: "/assets/certificates/responsive-web.jpg",
-    link: "https://example.com/cert/responsive",
+    name: "Full Stack Web Developper",
+    issuer: "Purwadhika Technology School",
+    date: "March 2025",
+    image:
+      "https://res.cloudinary.com/dpuqloe2r/image/upload/v1743518376/Purwadhika.original_swj0li.jpg",
+    link: "https://drive.google.com/file/d/1kkKEya1cFTmv2px5-gua4RjRMhgFtjNX/view?usp=sharing",
   },
 ];
 
@@ -253,7 +235,7 @@ export const userInfo = {
   email: "dathariqf@gmail.com",
   location: "Bandung, West Java, Indonesia",
   about:
-   "I am a passionate full stack developer who transitioned from a career in marine electrical systems, bringing a unique technical perspective to web development. I specialize in building modern web applications using Next.js, React, and TypeScript. I enjoy creating responsive, accessible, and performant web experiences that solve real-world problems. With a strong foundation in both frontend and backend technologies, combined with my background in maritime systems, I strive to deliver high-quality code and exceptional user experiences that blend technical precision with creative solutions.",
+    "I am a passionate full stack developer who transitioned from a career in marine electrical systems, bringing a unique technical perspective to web development. I specialize in building modern web applications using Next.js, React, and TypeScript. I enjoy creating responsive, accessible, and performant web experiences that solve real-world problems. With a strong foundation in both frontend and backend technologies, combined with my background in maritime systems, I strive to deliver high-quality code and exceptional user experiences that blend technical precision with creative solutions.",
   skills: [
     {
       category: "Frontend",
@@ -288,10 +270,11 @@ export const userInfo = {
     },
   ],
   socialLinks: {
-    github: "https://github.com/yourusername",
-    linkedin: "https://linkedin.com/in/yourusername",
-    twitter: "https://twitter.com/yourusername",
-    instagram: "https://instagram.com/yourusername",
+    github: "https://github.com/crayoninvok",
+    linkedin:
+      "https://www.linkedin.com/in/dzaky-athariq-ferreira-s-tr-t-a820b3180/",
+    twitter: "https://x.com/ZAthariqFr",
+    instagram: "https://www.instagram.com/dzakyathariq/",
   },
 };
 
