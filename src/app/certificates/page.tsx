@@ -1,21 +1,30 @@
 // src/app/certificates/page.tsx
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-import Link from 'next/link';
-import FadeIn from '@/components/animation/FadeIn';
-import { certificatesData } from '@/lib/data';
-import { Certificate } from '@/types';
+import { useState } from "react";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import FadeIn from "@/components/animation/FadeIn";
+import { certificatesData } from "@/lib/data";
+import { Certificate } from "@/types";
 
 // Certificate Card Component
-const CertificateCard = ({ certificate, index }: { certificate: Certificate; index: number }) => {
+const CertificateCard = ({
+  certificate,
+  index,
+}: {
+  certificate: Certificate;
+  index: number;
+}) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <FadeIn delay={0.2 + index * 0.1} direction={index % 2 === 0 ? "right" : "left"}>
-      <motion.div 
+    <FadeIn
+      delay={0.2 + index * 0.1}
+      direction={index % 2 === 0 ? "right" : "left"}
+    >
+      <motion.div
         className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg h-full flex flex-col"
         whileHover={{ y: -10 }}
         transition={{ duration: 0.3 }}
@@ -30,10 +39,14 @@ const CertificateCard = ({ certificate, index }: { certificate: Certificate; ind
             fill
             className="object-cover"
           />
-          <div className={`absolute inset-0 bg-primary/60 flex items-center justify-center transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
-            <motion.a 
-              href={certificate.link} 
-              target="_blank" 
+          <div
+            className={`absolute inset-0 bg-primary/60 flex items-center justify-center transition-opacity duration-300 ${
+              isHovered ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <motion.a
+              href={certificate.link}
+              target="_blank"
               rel="noopener noreferrer"
               className="bg-white text-primary px-6 py-3 rounded-lg font-medium shadow-md hover:bg-gray-100 transition-colors"
               whileHover={{ scale: 1.05 }}
@@ -43,7 +56,7 @@ const CertificateCard = ({ certificate, index }: { certificate: Certificate; ind
             </motion.a>
           </div>
         </div>
-        
+
         {/* Certificate Content */}
         <div className="p-6 flex flex-col flex-grow">
           <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
@@ -55,12 +68,12 @@ const CertificateCard = ({ certificate, index }: { certificate: Certificate; ind
           <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
             Issued: {certificate.date}
           </p>
-          
+
           <div className="mt-auto flex justify-between items-center">
-            <a 
-              href={certificate.link} 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              href={certificate.link}
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-primary dark:text-primary-light text-sm hover:underline"
             >
               View Certificate
@@ -76,24 +89,24 @@ const CertificateCard = ({ certificate, index }: { certificate: Certificate; ind
 };
 
 // Certificate Viewer Modal
-const CertificateViewer = ({ 
-  certificate, 
-  onClose 
-}: { 
+const CertificateViewer = ({
+  certificate,
+  onClose,
+}: {
   certificate: Certificate | null;
   onClose: () => void;
 }) => {
   if (!certificate) return null;
-  
+
   return (
-    <motion.div 
+    <motion.div
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       onClick={onClose}
     >
-      <motion.div 
+      <motion.div
         className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden max-w-4xl w-full shadow-2xl"
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -119,7 +132,7 @@ const CertificateViewer = ({
           <p className="text-gray-600 dark:text-gray-400 mb-6">
             Issued: {certificate.date}
           </p>
-          
+
           <div className="flex justify-between">
             <button
               onClick={onClose}
@@ -127,9 +140,9 @@ const CertificateViewer = ({
             >
               Close
             </button>
-            <a 
-              href={certificate.link} 
-              target="_blank" 
+            <a
+              href={certificate.link}
+              target="_blank"
               rel="noopener noreferrer"
               className="bg-primary text-white px-4 py-2 rounded-md hover:bg-primary-dark transition-colors"
             >
@@ -144,60 +157,61 @@ const CertificateViewer = ({
 
 // Main Certificates Page Component
 export default function CertificatesPage() {
-  const [selectedCertificate, setSelectedCertificate] = useState<Certificate | null>(null);
-  
+  const [selectedCertificate, setSelectedCertificate] =
+    useState<Certificate | null>(null);
+
   // Group certificates by year
   const certificatesByYear: Record<string, Certificate[]> = {};
-  certificatesData.forEach(certificate => {
+  certificatesData.forEach((certificate) => {
     const year = new Date(certificate.date).getFullYear().toString();
     if (!certificatesByYear[year]) {
       certificatesByYear[year] = [];
     }
     certificatesByYear[year].push(certificate);
   });
-  
-  const years = Object.keys(certificatesByYear).sort((a, b) => parseInt(b) - parseInt(a));
-  
+
+  const years = Object.keys(certificatesByYear).sort(
+    (a, b) => parseInt(b) - parseInt(a)
+  );
+
   return (
-    <main className="py-16 md:py-24">
+    <main className="pt-28 md:pt-36 pb-16 md:pb-24">
       <div className="container mx-auto px-4">
         <FadeIn>
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-900 dark:text-white">
             Certificates & Credentials
           </h1>
           <p className="text-center text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-16">
-            Professional certifications and credentials that validate my skills and expertise in various technologies and domains.
+            Professional certifications and credentials that validate my skills
+            and expertise in various technologies and domains.
           </p>
         </FadeIn>
-        
+
         {/* Certificates Grid */}
         <div className="space-y-16">
-          {years.map(year => (
+          {years.map((year) => (
             <div key={year}>
               <FadeIn>
                 <h2 className="text-2xl md:text-3xl font-bold mb-8 text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-700 pb-4">
                   {year}
                 </h2>
               </FadeIn>
-              
+
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {certificatesByYear[year].map((certificate, index) => (
-                  <div 
-                    key={certificate.id} 
+                  <div
+                    key={certificate.id}
                     onClick={() => setSelectedCertificate(certificate)}
                     className="cursor-pointer"
                   >
-                    <CertificateCard 
-                      certificate={certificate} 
-                      index={index} 
-                    />
+                    <CertificateCard certificate={certificate} index={index} />
                   </div>
                 ))}
               </div>
             </div>
           ))}
         </div>
-        
+
         {/* Call to Action */}
         <FadeIn delay={0.4}>
           <div className="max-w-3xl mx-auto mt-20 bg-gradient-to-r from-primary/90 to-primary p-8 rounded-xl shadow-lg text-center">
@@ -205,7 +219,8 @@ export default function CertificatesPage() {
               Looking for a skilled developer?
             </h2>
             <p className="text-white/90 mb-6">
-              I'm constantly learning and improving my skills. Let's collaborate on your next project.
+              I'm constantly learning and improving my skills. Let's collaborate
+              on your next project.
             </p>
             <div className="flex justify-center gap-4">
               <Link href="/contact">
@@ -215,8 +230,17 @@ export default function CertificatesPage() {
                   className="bg-white text-primary px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition inline-flex items-center"
                 >
                   Get In Touch
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 ml-2"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                      clipRule="evenodd"
+                    />
                   </svg>
                 </motion.button>
               </Link>
@@ -232,12 +256,12 @@ export default function CertificatesPage() {
             </div>
           </div>
         </FadeIn>
-        
+
         {/* Certificate Viewer Modal */}
         {selectedCertificate && (
-          <CertificateViewer 
-            certificate={selectedCertificate} 
-            onClose={() => setSelectedCertificate(null)} 
+          <CertificateViewer
+            certificate={selectedCertificate}
+            onClose={() => setSelectedCertificate(null)}
           />
         )}
       </div>

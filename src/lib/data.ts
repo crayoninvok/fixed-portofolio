@@ -231,11 +231,11 @@ export const certificatesData: Certificate[] = [
 // User information for the About section
 export const userInfo = {
   name: "Dzaky Athariq Ferreira",
-  title: "Full Stack Developer",
+  title: "Full Stack Web Developer",
   email: "dathariqf@gmail.com",
   location: "Bandung, West Java, Indonesia",
   about:
-    "I am a passionate full stack developer who transitioned from a career in marine electrical systems, bringing a unique technical perspective to web development. I specialize in building modern web applications using Next.js, React, and TypeScript. I enjoy creating responsive, accessible, and performant web experiences that solve real-world problems. With a strong foundation in both frontend and backend technologies, combined with my background in maritime systems, I strive to deliver high-quality code and exceptional user experiences that blend technical precision with creative solutions.",
+    "I am a passionate full stack web developer who transitioned from a career in marine electrical systems, bringing a unique technical perspective to web development. I specialize in building modern web applications using Next.js, React, and TypeScript. I enjoy creating responsive, accessible, and performant web experiences that solve real-world problems. With a strong foundation in both frontend and backend technologies, combined with my background in maritime systems, I strive to deliver high-quality code and exceptional user experiences that blend technical precision with creative solutions.",
   skills: [
     {
       category: "Frontend",
@@ -285,7 +285,7 @@ export const educationData = [
     duration: "2014 - 2017",
     description:
       "Focused on physics, mathematics, and chemistry with excellent academic standing. Participated in various science competitions and served as a member of the student council. Developed strong analytical and problem-solving skills that became foundational for my engineering studies.",
-    logo: "https://res.cloudinary.com/dpuqloe2r/image/upload/v1743511066/logo-sma-negeri-7-bandung-01_tlkrrl.webp",
+    logo: "https://res.cloudinary.com/dpuqloe2r/image/upload/v1743714310/images_2_funxfq.jpg",
     courses: [
       "Physics",
       "Advanced Mathematics",

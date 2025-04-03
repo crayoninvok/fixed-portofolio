@@ -13,7 +13,7 @@ const Navbar = dynamic(() => import('@/components/layout/Navbar'), {
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'My Portfolio',
+  title: 'Dzaky`s Portside',
   description: 'Personal portfolio showcasing my work and experience',
 };
 
