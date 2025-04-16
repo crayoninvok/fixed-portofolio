@@ -25,7 +25,7 @@ const getExperiencePhotos = (experienceId: string) => {
       {
         src: "https://res.cloudinary.com/dpuqloe2r/image/upload/v1743714586/IMG20190722121217_blr6lp.jpg",
         alt: "Engineering team meeting",
-        caption: "Team meeting for system integration planning",
+        caption: "Team meeting for aircraft service",
       },
       {
         src: "https://res.cloudinary.com/dpuqloe2r/image/upload/v1743714550/IMG_20190704_133427_fnraqx.jpg",
