@@ -30,7 +30,7 @@ const getExperiencePhotos = (experienceId: string) => {
       {
         src: "https://res.cloudinary.com/dpuqloe2r/image/upload/v1743714550/IMG_20190704_133427_fnraqx.jpg",
         alt: "Avionics software debugging",
-        caption: "Debugging avionics software",
+        caption: "Instrumentation Calibration Workshop",
       },
     ],
     "2": [
