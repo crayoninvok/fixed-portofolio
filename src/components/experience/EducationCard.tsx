@@ -47,12 +47,12 @@ const getEducationPhotos = (schoolName: string) => {
       {
         src: "https://res.cloudinary.com/dpuqloe2r/image/upload/v1743713657/WhatsApp_Image_2025-04-04_at_03.46.51_b93qgq.jpg",
         alt: "Thesis project",
-        caption: "Working on sensor network thesis project",
+        caption: "Finish after final project",
       },
       {
         src: "https://res.cloudinary.com/dpuqloe2r/image/upload/v1743713569/9cde8177-17be-4377-bfa3-b2be11b2e772_lx2kmk.jpg",
         alt: "Engineering competition",
-        caption: "Participating in national instrumentation competition",
+        caption: "Graduation day on campus",
       },
     ],
     "Purwadhika Digital Technology School": [
@@ -64,7 +64,7 @@ const getEducationPhotos = (schoolName: string) => {
       {
         src: "https://res.cloudinary.com/dpuqloe2r/image/upload/v1743712222/ab8eb7eb-d37d-45d3-81d3-814578faf7e4_gpnmcn.jpg",
         alt: "Squad",
-        caption: "Collaborating on a full-stack project",
+        caption: "My full stack web development buddy",
       },
       {
         src: "https://res.cloudinary.com/dpuqloe2r/image/upload/v1743713766/WhatsApp_Image_2025-04-04_at_03.49.49_yiliod.jpg",
@@ -74,7 +74,7 @@ const getEducationPhotos = (schoolName: string) => {
       {
         src: "https://res.cloudinary.com/dpuqloe2r/image/upload/v1743713765/WhatsApp_Image_2025-04-04_at_03.51.37_nixx8t.jpg",
         alt: "Graduate ceremony",
-        caption: "Receiving completion certificate",
+        caption: "After graduation party",
       },
     ],
   };
