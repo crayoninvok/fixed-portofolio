@@ -25,12 +25,12 @@ const getEducationPhotos = (schoolName: string) => {
       {
         src: "https://res.cloudinary.com/dpuqloe2r/image/upload/v1743714880/IMG_1321_fpesm2.jpg",
         alt: "Study Tour",
-        caption: "Student council meeting",
+        caption: "Student study tour to Bali",
       },
       {
         src: "https://res.cloudinary.com/dpuqloe2r/image/upload/v1743714879/DSC_0032_uiai6u.jpg",
         alt: "Graduation",
-        caption: "Participating in regional science competition",
+        caption: "Graduation Day",
       },
     ],
     "Sepuluh Nopember Institute of Technology": [
