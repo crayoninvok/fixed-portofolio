@@ -37,7 +37,7 @@ const getEducationPhotos = (schoolName: string) => {
       {
         src: "https://res.cloudinary.com/dpuqloe2r/image/upload/v1743713898/1556707168488_mqihwf.jpg",
         alt: "Campus view",
-        caption: "Main campus of Sepuluh Nopember Institute of Technology",
+        caption: "Instrumentation control laboratory",
       },
       {
         src: "https://res.cloudinary.com/dpuqloe2r/image/upload/v1743713568/5df9538f-c06f-43e9-b3ef-7661893bd0f2_xi3rpa.jpg",
