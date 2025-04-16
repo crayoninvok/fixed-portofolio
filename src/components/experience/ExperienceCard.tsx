@@ -53,7 +53,7 @@ const getExperiencePhotos = (experienceId: string) => {
       {
         src: "https://res.cloudinary.com/dpuqloe2r/image/upload/v1743714013/WhatsApp_Image_2025-04-04_at_03.39.20_wmkbhv.jpg",
         alt: "Filing inspection report",
-        caption: "Completing inspection documentation",
+        caption: "Conducting baattery capacity test",
       },
     ],
     "3": [
